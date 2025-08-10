@@ -8,3 +8,8 @@ langchain-chroma
 langchain-ollama
 chromadb
 unstructured
+pysqlite3-binary
+pdfminer.six
+pi_heif
+unstructured_inference
+pdf2image
