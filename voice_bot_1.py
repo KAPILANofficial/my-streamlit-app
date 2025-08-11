@@ -29,7 +29,7 @@ from PIL import Image
 # any other imports you need...
 
 # === YOUR APP LOGIC STARTS HERE ===
-st.title("My OCR App")
+st.title("🎙️ TALK_2_ORDER [VoiceBot RAG]")
 
 # Your Streamlit app code continues below...
 
