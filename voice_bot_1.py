@@ -175,5 +175,14 @@ if audio_bytes:
 # In[ ]:
 
 
+import asyncio
+import atexit
+
+def cleanup():
+    loop = asyncio.get_event_loop()
+    if not loop.is_closed():
+        loop.close()
+
+atexit.register(cleanup)
 
 
