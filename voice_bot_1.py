@@ -33,6 +33,11 @@ st.title("🎙️ TALK_2_ORDER [VoiceBot RAG]")
 
 # Your Streamlit app code continues below...
 
+try:
+    # your OCR code here
+except Exception as e:
+    print("OCR failed, skipping OCR:", e)
+    # fallback to non-OCR processing
 
 
 
