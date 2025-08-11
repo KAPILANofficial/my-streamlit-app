@@ -4,12 +4,24 @@
 # In[1]:
 
 # === SYSTEM CONFIGURATION SETUP ===
+
+from unstructured.partition.pdf import partition
+
+try:
+    elements = partition("menu.pdf", strategy="ocr_only")
+except Exception as e:
+    print("OCR failed, skipping OCR:", e)
+    elements = partition("menu.pdf", strategy="hi_res")  # fallback
+
+
+
 import os
 os.environ['LIBGL_ALWAYS_SOFTWARE'] = '1'
 os.environ['OCR_AGENT'] = 'tesseract'
 
 import cv2
 cv2.ocl.setUseOpenCL(False)
+
 
 # Cleanup to avoid asyncio loop errors at shutdown
 import asyncio
@@ -32,14 +44,6 @@ from PIL import Image
 st.title("🎙️ TALK_2_ORDER [VoiceBot RAG]")
 
 # Your Streamlit app code continues below...
-
-try:
-    # your OCR code here
-except Exception as e:
-    print("OCR failed, skipping OCR:", e)
-    # fallback to non-OCR processing
-
-
 
 
 __import__('pysqlite3')
