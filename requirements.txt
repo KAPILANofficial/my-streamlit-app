@@ -13,3 +13,4 @@ pdfminer.six
 pi_heif
 unstructured_inference
 pymupdf
+pytesseract
