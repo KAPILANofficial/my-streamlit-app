@@ -3,6 +3,40 @@
 
 # In[1]:
 
+# === SYSTEM CONFIGURATION SETUP ===
+import os
+os.environ['LIBGL_ALWAYS_SOFTWARE'] = '1'
+os.environ['OCR_AGENT'] = 'tesseract'
+
+import cv2
+cv2.ocl.setUseOpenCL(False)
+
+# Cleanup to avoid asyncio loop errors at shutdown
+import asyncio
+import atexit
+
+def cleanup():
+    loop = asyncio.get_event_loop()
+    if not loop.is_closed():
+        loop.close()
+
+atexit.register(cleanup)
+
+# === REGULAR IMPORTS START HERE ===
+import streamlit as st
+import pytesseract
+from PIL import Image
+# any other imports you need...
+
+# === YOUR APP LOGIC STARTS HERE ===
+st.title("My OCR App")
+
+# Your Streamlit app code continues below...
+
+
+
+
+
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3']=sys.modules.pop('pysqlite3')
@@ -174,15 +208,5 @@ if audio_bytes:
 
 # In[ ]:
 
-
-import asyncio
-import atexit
-
-def cleanup():
-    loop = asyncio.get_event_loop()
-    if not loop.is_closed():
-        loop.close()
-
-atexit.register(cleanup)
 
 
